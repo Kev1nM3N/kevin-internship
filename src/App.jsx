@@ -50,7 +50,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home cards={cards} newItemsCards={newItemsCards} topSellers={topSellers}/>} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/author" element={<Author />} />
+        <Route path="/author/:authorId" element={<Author />} />
         <Route path="/item-details/:nftId" element={<ItemDetails />} />
       </Routes>
       <Footer />
