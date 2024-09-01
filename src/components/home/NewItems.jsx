@@ -6,8 +6,6 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import TimerCountDown from "./TimerCountDown";
 
 const NewItems = ({ newItemsCards }) => {
-  console.log(newItemsCards);
-
   const responsive = {
     0: {
       items: 1,

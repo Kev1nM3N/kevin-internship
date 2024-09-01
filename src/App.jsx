@@ -7,11 +7,11 @@ import ItemDetails from "./pages/ItemDetails";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
-//https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections
 
 function App() {
   const [cards, setCards] = useState([]);
   const [newItemsCards, setNewItemsCards] = useState([]);
+  const [topSellers, setTopSellers] = useState([])
 
   async function getCards() {
     const fetchCards = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections');
@@ -25,12 +25,20 @@ function App() {
     return receiveNewItems
   }
 
+  async function getTopSellers (){
+    const fetchTopSellers = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers')
+    let receiveTopSellers = fetchTopSellers.data
+    return receiveTopSellers
+  }
+
   useEffect(() => {
     async function fetchData() {
       const receiveCards = await getCards();
       const receiveNewItems = await getNewItems();
+      const receiveTopSellers = await getTopSellers();
       setCards(receiveCards);
       setNewItemsCards(receiveNewItems);
+      setTopSellers(receiveTopSellers);
     }
     fetchData();
   }, []);
@@ -40,9 +48,9 @@ function App() {
     <Router>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home cards={cards} newItemsCards={newItemsCards} />} />
+        <Route path="/" element={<Home cards={cards} newItemsCards={newItemsCards} topSellers={topSellers}/>} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/author" element={<Author />} />
+        <Route path="/author/:authorId" element={<Author />} />
         <Route path="/item-details/:nftId" element={<ItemDetails />} />
       </Routes>
       <Footer />
