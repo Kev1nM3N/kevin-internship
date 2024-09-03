@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
 
-const Explore = () => {
+const Explore = ({ exploreItems }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    //Does this work?
   }, []);
 
   return (
@@ -33,7 +32,7 @@ const Explore = () => {
         <section aria-label="section">
           <div className="container">
             <div className="row">
-              <ExploreItems />
+              <ExploreItems exploreItems={exploreItems}/>
             </div>
           </div>
         </section>
