@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//next you need to link the profiles and change the info on their respective pages.
 
 const TopSellers = ({ topSellers }) => {
   console.log(topSellers);
