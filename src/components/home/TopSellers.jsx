@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TopSellers = ({ topSellers }) => {
-  console.log(topSellers);
 
   return (
     <section id="section-popular" className="pb-5">
