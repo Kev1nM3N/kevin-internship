@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Author = () => {
   const [author, setAuthor] = useState([]);
-  const [addFollower, setAddFollower] = useState(1);
-  //we need to change the button text and add one follower to the follower count
+  const [followers, setFollowers] = useState(0);
+  const [isFollowing, setIsFollowing] = useState(false);
 
   const { authorId } = useParams();
 
@@ -15,13 +15,12 @@ const Author = () => {
     const fetchAuthor = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`);
     const receiveAuthor = fetchAuthor.data;
     setAuthor(receiveAuthor);
-    setAddFollower(receiveAuthor.followers)
+    setFollowers(receiveAuthor.followers);
   }
 
-  function buttonFollow(params) {
-    console.log('working');
-    setAddFollower((preFollower) => preFollower + 1)
-    console.log(addFollower);
+  function buttonFollow() {
+    isFollowing ? setFollowers((prevFollower) => prevFollower - 1) : setFollowers((prevFollower) => prevFollower + 1);
+    setIsFollowing((prevState) => !prevState);
   }
 
 
@@ -69,9 +68,9 @@ const Author = () => {
                   </div>
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
-                      <div className="profile_follower">{author.followers} followers</div>
+                      <div className="profile_follower">{followers} followers</div>
                       <button onClick={buttonFollow} className="btn-main">
-                        Follow
+                        {isFollowing ? "Unfollow" : "Follow"}
                       </button>
                     </div>
                   </div>
