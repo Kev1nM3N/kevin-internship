@@ -16716,7 +16716,7 @@ HOT COLLECTIONS SKELETON LOADING STATE
     rgba(255, 255, 255, 0) 100%
   );
   background-size: 1000px 100%;
-  animation: shimmer 200ms infinite;
+  animation: shimmer 1s infinite;
 }
 
 .nft-image {
@@ -16770,5 +16770,5 @@ HOT COLLECTIONS SKELETON LOADING STATE
   height: 264px;
   background-color: #e0e0e0;
   border-radius: 4px;
-  animation: shimmer 1s infinite linear;
+  animation: shimmer 2s infinite linear;
 }
