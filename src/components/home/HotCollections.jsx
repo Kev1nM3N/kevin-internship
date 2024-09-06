@@ -20,7 +20,7 @@ const HotCollections = ({ cards }) => {
     },
   };
 
-  return cards.length ? (
+  return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
         <div className="row">
@@ -30,6 +30,7 @@ const HotCollections = ({ cards }) => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+          { cards.length ? (
           <OwlCarousel
             className="owl-theme"
             loop
@@ -62,43 +63,21 @@ const HotCollections = ({ cards }) => {
               </div>
             ))}
           </OwlCarousel>
+          ) : (
+            <div>
+              <div className="skeleton-wrapper1">
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+              </div>
+            </div>
+          ) }
+          
         </div>
       </div>
     </section>
-  ) : (
-    <div>
-      <div className="skeleton-wrapper1">
-        <div className="box">
-          <div className="skeleton skeleton-avatar"></div>
-          <div className="skeleton skeleton-title"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-        </div>
-        <div className="box">
-          <div className="skeleton skeleton-avatar"></div>
-          <div className="skeleton skeleton-title"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-        </div>
-        <div className="box">
-          <div className="skeleton skeleton-avatar"></div>
-          <div className="skeleton skeleton-title"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-        </div>
-        <div className="box">
-          <div className="skeleton skeleton-avatar"></div>
-          <div className="skeleton skeleton-title"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-          <div className="skeleton skeleton-text"></div>
-        </div>
-      </div>
-    </div>
-  );
+  )
 };
 
 export default HotCollections;

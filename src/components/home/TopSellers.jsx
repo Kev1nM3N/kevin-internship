@@ -33,16 +33,16 @@ const TopSellers = ({ topSellers }) => {
                   </div>
                 </li>
               )) : ( 
-                new Array(6).fill(0).map((_, index) => (
-                  <div key={index} className="skeleton-wrapper">
-                    <div className="box">
+                <div className="skeleton-wrapper">
+                  {new Array(5).fill(0).map((_, index) => (
+                    <div key={index} className="box">
                       <div className="skeleton skeleton-avatar"></div>
                       <div className="skeleton skeleton-title"></div>
                       <div className="skeleton skeleton-text"></div>
                       <div className="skeleton skeleton-text"></div>
                     </div>
-                  </div>
-                ))
+                  ))}
+                </div>
               )}
             </ol>
           </div>

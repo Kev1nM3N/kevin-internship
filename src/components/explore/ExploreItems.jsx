@@ -1,6 +1,8 @@
+import TimerCountDown from "../home/TimerCountDown";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import TimerCountDown from "../home/TimerCountDown";
+import axios from "axios";
+//implement filter API
 
 const ExploreItems = ({ exploreItems }) => {
   const [visibleItems, setVisibleItems] = useState(8);
@@ -107,16 +109,16 @@ const ExploreItems = ({ exploreItems }) => {
       )) : (
         <>
           <div className="skeleton-explore-wrapper">
-            <div className="skeleton-explore"></div>
-            <div className="skeleton-explore"></div>
-            <div className="skeleton-explore"></div>
-            <div className="skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
           </div>
           <div className="skeleton-explore-wrapper">
-            <div className="skeleton-explore"></div>
-            <div className="skeleton-explore"></div>
-            <div className="skeleton-explore"></div>
-            <div className="skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
+            <div className="skeleton skeleton-explore"></div>
           </div>
         </>
       )}

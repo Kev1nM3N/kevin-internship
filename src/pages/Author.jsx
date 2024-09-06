@@ -49,8 +49,9 @@ const Author = () => {
                 <div className="d_profile de-flex">
                   <div className="de-flex-col">
                     <div className="profile_avatar">
-                      <img src={author.authorImage} alt="" />
-
+                      { author.authorImage ? <img src={author.authorImage} alt="" /> : 
+                        <div style={{height: '125px', width: '125px'}} className="skeleton skeleton-avatar"></div>
+                      }
                       <i className="fa fa-check"></i>
                       <div className="profile_name">
                         <h4>
