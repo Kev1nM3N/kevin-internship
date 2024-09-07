@@ -3,6 +3,8 @@ import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Author = () => {
   const [author, setAuthor] = useState([]);
@@ -25,6 +27,7 @@ const Author = () => {
 
 
   useEffect(() => {
+    AOS.init();
     window.scrollTo(0, 0);
     fetchAuthor();
   }, []);
@@ -43,7 +46,7 @@ const Author = () => {
         ></section>
 
         <section aria-label="section">
-          <div className="container">
+          <div data-aos="fade-up" className="container">
             <div className="row">
               <div className="col-md-12">
                 <div className="d_profile de-flex">

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+import "owl.carousel/dist/assets/owl.theme.default.css"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HotCollections = ({ cards }) => {
+  useEffect(() => {
+    AOS.init()
+  }, [])
+
   const responsive = {
     0: {
       items: 1,
@@ -23,7 +29,7 @@ const HotCollections = ({ cards }) => {
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div data-aos="fade-up" className="row">
           <div className="col-lg-12">
             <div className="text-center">
               <h2>Hot Collections</h2>

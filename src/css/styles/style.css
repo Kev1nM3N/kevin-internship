@@ -16743,14 +16743,6 @@ img {
   cursor: not-allowed;
 }
 
-/*
-    EXPLORE ITEMS SKELETON LOADING STATE
-*/
-
-.box {
-  margin: 0 10px;
-}
-
 .skeleton-explore-wrapper {
   display: flex;
   justify-content: space-between;
