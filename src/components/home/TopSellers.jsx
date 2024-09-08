@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const TopSellers = ({ topSellers }) => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   return (
     <section id="section-popular" className="pb-5">
@@ -13,7 +18,7 @@ const TopSellers = ({ topSellers }) => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div data-aos="fade-in" className="col-md-12">
             <ol className="author_list">
               {topSellers.length ? topSellers.map((profile) => (
                 <li key={profile.id}>
@@ -33,16 +38,16 @@ const TopSellers = ({ topSellers }) => {
                   </div>
                 </li>
               )) : ( 
-                new Array(6).fill(0).map((_, index) => (
-                  <div key={index} className="skeleton-wrapper">
-                    <div className="box">
+                <div className="skeleton-wrapper">
+                  {new Array(5).fill(0).map((_, index) => (
+                    <div key={index} className="box">
                       <div className="skeleton skeleton-avatar"></div>
                       <div className="skeleton skeleton-title"></div>
                       <div className="skeleton skeleton-text"></div>
                       <div className="skeleton skeleton-text"></div>
                     </div>
-                  </div>
-                ))
+                  ))}
+                </div>
               )}
             </ol>
           </div>

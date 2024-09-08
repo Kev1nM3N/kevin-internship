@@ -57,16 +57,16 @@ const AuthorItems = ({ authorItems, authorPFP }) => {
           )) : (
             <>
               <div className="skeleton-explore-wrapper">
-                <div className="skeleton-explore"></div>
-                <div className="skeleton-explore"></div>
-                <div className="skeleton-explore"></div>
-                <div className="skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
               </div>
               <div className="skeleton-explore-wrapper">
-                <div className="skeleton-explore"></div>
-                <div className="skeleton-explore"></div>
-                <div className="skeleton-explore"></div>
-                <div className="skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
+                <div className="skeleton skeleton-explore"></div>
               </div>
             </>
           )}

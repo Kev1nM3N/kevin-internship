@@ -5,7 +5,7 @@ import EthImage from "../images/ethereum.svg";
 import { Link } from "react-router-dom";
 
 const ItemDetails = () => {
-  const [itemDetails, setItemDetails] = useState([]);
+  const [itemDetails, setItemDetails] = useState(null);
 
   const { nftId } = useParams();
 
@@ -28,7 +28,7 @@ const ItemDetails = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-6 text-center">
-                {!itemDetails.length ? 
+                {itemDetails ? 
                 <img
                 src={itemDetails.nftImage}
                 className="img-fluid img-rounded mb-sm-30 nft-image"
@@ -41,19 +41,19 @@ const ItemDetails = () => {
               </div>
               <div className="col-md-6">
                 <div className="item_info">
-                  {!itemDetails.length ? <h2>{ itemDetails.title } #{itemDetails.tag}</h2> : <h2>Loading...</h2>}
+                  {itemDetails ? <h2>{ itemDetails.title } #{ itemDetails.tag}</h2> : <h2>Loading...</h2>}
 
                   <div className="item_info_counts">
                     <div className="item_info_views">
                       <i className="fa fa-eye"></i>
-                      { !itemDetails.length ? itemDetails.views : 0}
+                      { itemDetails ? itemDetails && itemDetails.views : 0}
                     </div>
                     <div className="item_info_like">
                       <i className="fa fa-heart"></i>
-                      { !itemDetails.length ? itemDetails.likes : 0}
+                      { itemDetails ? itemDetails && itemDetails.likes : 0}
                     </div>
                   </div>
-                  { !itemDetails.length ? <p>{itemDetails.description}</p> : 
+                  { itemDetails ? <p>{itemDetails.description}</p> : 
                       <>
                         <div className="skeleton skeleton-text"></div>
                         <div className="skeleton skeleton-text"></div>
@@ -64,15 +64,15 @@ const ItemDetails = () => {
                       <h6>Owner</h6>
                       <div className="item_author">
                         <div className="author_list_pp">
-                          <Link to={`/author/${itemDetails.ownerId}`}>
-                            { !itemDetails.length ? <img className="lazy" src={itemDetails.ownerImage} alt="" /> : 
+                          <Link to={`/author/${itemDetails && itemDetails.ownerId}`}>
+                            { itemDetails ? <img className="lazy" src={itemDetails.ownerImage} alt="" /> : 
                                 <div className="skeleton skeleton-avatar"></div>
                             } 
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          { !itemDetails.length ?  <Link to={`/author/${itemDetails.ownerId}`}>{itemDetails.ownerName}</Link> :
+                          { itemDetails ?  <Link to={`/author/${itemDetails && itemDetails.ownerId}`}>{itemDetails && itemDetails.ownerName}</Link> :
                             <>
                               <div className="skeleton skeleton-text"></div>
                               <div className="skeleton skeleton-text"></div>
@@ -88,15 +88,15 @@ const ItemDetails = () => {
                       <h6>Creator</h6>
                       <div className="item_author">
                         <div className="author_list_pp">
-                          <Link to={`/author/${itemDetails.creatorId}`}>
-                            { !itemDetails.length ? <img className="lazy" src={itemDetails.creatorImage} alt="" /> : 
+                          <Link to={`/author/${itemDetails && itemDetails.creatorId}`}>
+                            { itemDetails ? <img className="lazy" src={itemDetails.creatorImage} alt="" /> : 
                               <div className="skeleton skeleton-avatar"></div>
                             } 
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          { !itemDetails.length ?  <Link to={`/author/${itemDetails.creatorId}`}>{itemDetails.creatorName}</Link> :
+                          { itemDetails ?  <Link to={`/author/${itemDetails && itemDetails.creatorId}`}>{itemDetails && itemDetails.creatorName}</Link> :
                             <>
                               <div className="skeleton skeleton-text"></div>
                               <div className="skeleton skeleton-text"></div>
@@ -109,7 +109,7 @@ const ItemDetails = () => {
                     <h6>Price</h6>
                     <div className="nft-item-price">
                       <img src={EthImage} alt="" />
-                      <span>{!itemDetails.length ? itemDetails.price : 0}</span>
+                      <span>{itemDetails ? itemDetails && itemDetails.price : 0}</span>
                     </div>
                   </div>
                 </div>
