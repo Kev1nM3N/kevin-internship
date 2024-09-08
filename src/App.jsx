@@ -7,7 +7,6 @@ import ItemDetails from "./pages/ItemDetails";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
-//approved by Kevin
 //From Main! Do not remove!!!
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
   const [newItemsCards, setNewItemsCards] = useState([]);
   const [topSellers, setTopSellers] = useState([])
   const [exploreItems, setExploreItems] = useState([]);
-  //random comment here
 
   async function getCards() {
     const fetchCards = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections');
@@ -54,6 +52,7 @@ function App() {
     }
     fetchData();
   }, []);
+  //leave a comment here from kevin-merge
 
 
   return (
