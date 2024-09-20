@@ -7,6 +7,7 @@ import ItemDetails from "./pages/ItemDetails";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
+//new comment test
 
 function App() {
   const [cards, setCards] = useState([]);
