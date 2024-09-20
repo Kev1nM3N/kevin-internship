@@ -7,7 +7,6 @@ import ItemDetails from "./pages/ItemDetails";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { useState, useEffect } from "react";
-//From Main! Do not remove!!!
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -52,7 +51,6 @@ function App() {
     }
     fetchData();
   }, []);
-  //FROM MAIN! DO NOT REMOVE!!!!!
 
 
   return (
